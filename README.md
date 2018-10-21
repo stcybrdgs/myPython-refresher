@@ -1,1 +1,1 @@
-A collection of mini Python projects.
+A collection of mini programs exploring Python.
