@@ -1,1 +1,1 @@
-A collection of mini programs exploring Python.
+A scratch sheet of Python patterns for refresher purposes
