@@ -1,1 +1,1 @@
-A scratch sheet of Python patterns for refresher purposes
+A scratch sheet of Python patterns for refresher purposes.
