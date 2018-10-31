@@ -2,6 +2,8 @@
 # Example file for working with classes
 #
 
+
+# define a class with two methods -----------
 class myClass():
   # rem: self = this
   def method1( self ):
@@ -13,6 +15,8 @@ class myClass():
 # END ...
 
 
+# define a class with two methods -----------
+# and inherit from myClass()
 class myClassChild( myClass ):
   # rem: self = this
   def method1( self ):
@@ -25,6 +29,8 @@ class myClassChild( myClass ):
 # END ...
 
 
+# use main to create class objects ----------
+# and call class methods
 def main():
   c = myClass()
   c.method1()
@@ -36,5 +42,6 @@ def main():
 
 # END ...
   
+
 if __name__ == "__main__":
   main()
