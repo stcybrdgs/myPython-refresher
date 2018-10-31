@@ -2,8 +2,7 @@
 # Example file for working with functions
 #
 
-
-# define a basic function
+# define a basic function ---------------
 def func1():
     x = 1 + 1 
     print("I am a function.")
@@ -11,24 +10,21 @@ def func1():
 
 func1()
 
-
-# function that takes arguments
+# function that takes arguments ---------
 def func2(x):
     print("I am a function.")
     print("1 + 1 = ", x)
 
 func2(2)
 
-
-# function that returns a value
+# function that returns a value ---------
 def add(a,b):
     x = a + b
     return x
 
 print(add(1,2))
 
-
-# function with default value for an argument
+# function with default arg value -------
 def power(num,x=1):
     result = 1
     for i in range(x):
@@ -45,7 +41,7 @@ print(power(x=4, num=3))
 print(power(num=3, x=4))
 
 
-# function with variable number of arguments -------------
+# function with variable # of args -------
 # The * means that a variable number of args is accepted,
 # so if there is more than one, then Python will loop 
 # through each one and combine them in the final result.
