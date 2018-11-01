@@ -31,7 +31,7 @@ def printResults(data):
       
 
   # myScratch
-  #print( theJSON["properties"]["mag"] )    
+  print( theJSON["features"][1]["properties"]["mag"] )    
   
   # print only the events where at least 1 person reported feeling something
   print("Events that were felt: ")
