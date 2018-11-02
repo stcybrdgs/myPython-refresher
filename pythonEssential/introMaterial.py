@@ -1,8 +1,8 @@
+#!/usr/bin/env python3
 # the 'shebang' line is a common pattern on Unix-based systems
 # it allows a script to be invoked from the command line
 # following the shebang is a path to the executable that will run
 # the script, along with any optional arguments
-#!/usr/bin/env python3
 
 
 import platform
