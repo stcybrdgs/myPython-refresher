@@ -43,8 +43,6 @@ class MyHTMLParser(HTMLParser):
       print("\tAt line: ", pos[0], " position ", pos[1])
 
 
-
-
 def main():
   # instantiate the parser and feed it some HTML
   parser = MyHTMLParser()
