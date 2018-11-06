@@ -20,8 +20,7 @@ for i in myTypeArray:
 x = '''
 seven,
 eleven
-'''
-print(x)
+''' # print x
 
 # strings are objects, including literal strings, so you can run methods on it
 x = 'seventy'
