@@ -1,5 +1,8 @@
 # this file is an overview of Python types and values
 
+# import modules
+from decimal import *
+
 # some basic data types in Python
 myTypeArray = [ 'Hello', 1, 7.0, .4e7, 2+3j, None, (True), True,
 			   ('Volvo', 'Ford'), (1, 2, 3) ]
@@ -29,7 +32,22 @@ x = 7 / 3
 print('x is: {}'.format(x))
 print(type(x), '\n')
 
+# notice the precision issue in the following calculation:
+# (the computer sacrifices accuracy for precision, so it is not
+# accurate, especially for money)
+# DON'T USE FLOATING POINT FOR MONEY CALCULATIONS
+# python comes with a built in module 'decimal' to help solve such issues
+print('\nExample: (.1 + .1 + .1) - .3:')
+x = (.1 + .1 + .1) - .3
+print('x is {}'.format(x))
+print(type(x), '\n')
 
+# here is the above example again, but using the python decimal module:
+print('\nExample using decimal module: (.1 + .1 + .1) - .3:')
+a, b = Decimal('.10'), Decimal('.30')
+x = (a + a + a) - b
+print('x is {}'.format(x))
+print(type(x), '\n')
 
 # strings are objects, including literal strings, so you can run methods on it
 x = 'seventy'
