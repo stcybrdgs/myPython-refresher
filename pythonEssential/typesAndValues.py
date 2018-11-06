@@ -20,7 +20,16 @@ for i in myTypeArray:
 x = '''
 seven,
 eleven
-''' # print x
+'''
+print(x)
+
+# notice that an integer divided by an integer becomes a float:
+print('\nExample: int/int = float :')
+x = 7 / 3
+print('x is: {}'.format(x))
+print(type(x), '\n')
+
+
 
 # strings are objects, including literal strings, so you can run methods on it
 x = 'seventy'
