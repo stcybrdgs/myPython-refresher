@@ -165,8 +165,31 @@ for i in x:
 print('\ntypes & ids for items in tuple Y:')
 for i in x:
 	print('item ', i, 'is a ', type(y[i-1]), ', ', id(y[i-1])) # set i counter to 0
-
-
+#
+print('\nis x[0] the same object as y[0]?')
+if x[0] is y[0]:
+	print('yes')
+else:
+	print('no')
+print('\nis x[4] the same object as y[4]?')
+if x[4] is y[4]:
+	print('yes')
+else:
+	print('no')	
+#
+# to evaluate T/F for actual data type against proposed data type use
+# isinstance()
+print('\nis x a tuple?')
+if isinstance(x, tuple):
+	print('yes')
+else:
+	print('no')
+print('\nis x a tuple?')
+if isinstance(y, tuple):
+	print('yes')
+else:
+	print('no')		
+	
 
 	
 	
