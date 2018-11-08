@@ -56,6 +56,7 @@ print( x.upper(), ', ', x.capitalize(), ', ', x + ' {} {}'.format(1, 2) )
 # an example with auto-fill
 print( x + ' : {1:<03} {0:>03}'.format(1, 2) )
 
+# =================================
 # examples using f strings
 # ex 1: 
 a, b = 8, 9
@@ -74,3 +75,71 @@ print( x, '{}{}'.format(a, b) )
 
 # ex 4: ... is the same as:
 print( x, f'{a}{b}' )
+# =================================
+
+# re bool type, keep in mind that the following all evaluate as false:
+# 0
+# None
+# ""
+
+# python provides some built-in SEQUENCE types, including
+# list, tuple, range, and dictionary
+# re a list is mutable and uses []
+# re a tuple is just like a list except it is immutable and uses ()
+#
+# list example:
+print('\nthis is the list example: ')
+x = [ 1, 2, 3, 4, 5 ]  # this is a list-- it is mutable
+x[2] = 42  # change value of second item in list to 42
+for i in x:
+	print('i is {}'.format(i))
+#
+# tuple example:
+# consider always favoring the tuple structure unless your program
+# will need to modify the contents, in which case use a list instead 
+print('\nthis is the tuple example: ')
+x = ( 1, 2, 3, 4, 5 )  # this is a list-- it is mutable
+for i in x:
+	print('i is {}'.format(i))
+#
+# you can also specify a sequence with range
+# re range takes three parameters, but you don't have to use them all
+# syntax w/ 1 parameters: range(endNum)
+print('\nthis is the range example (1 parameters): ')
+x = range(7)
+for i in x:
+	print('i is {}'.format(i))
+#
+# syntax w/ 2 parameters: range(startNum, endNum)
+#
+print('\nthis is the range example (2 parameters): ')
+x = range(2,7)
+for i in x:
+	print('i is {}'.format(i))
+#
+# syntax w/ 3 parameters: range(startNum, endNum, stepByNum)
+print('\nthis is the range example (3 parameters): ')
+x = range(2, 7, 2)
+for i in x:
+	print('i is {}'.format(i))
+#
+# a dictionary is a searchable sequence of key value pairs using {}
+# and any item in the dictionary can be any data type
+print('\nthis is the dictionary example: ')
+x = { 'one' : 1,
+	  'two' : 2.0,
+	  'three' : '3',
+	  'four': 8/2,
+	  'five' : .05E2
+	}
+for i in x: # pull back just the keys
+	print('i is {}'.format(i))
+for k, v in x.items(): # pull back just the keys
+	print('k: {}, v: {}'.format(k, v))
+
+	
+	
+
+	
+
+
