@@ -84,9 +84,10 @@ print( x, f'{a}{b}' )
 
 # python provides some built-in SEQUENCE types, including
 # list, tuple, range, and dictionary
-# re a list is mutable and uses []
-# re a tuple is just like a list except it is immutable and uses ()
-#
+# rem list [], mutable
+# rem tuple (), immutable
+# rem range (), syntax: range(start, end, step)
+# rem dictionary {}, mutable
 # list example:
 print('\nthis is the list example: ')
 x = [ 1, 2, 3, 4, 5 ]  # this is a list-- it is mutable
@@ -124,18 +125,46 @@ for i in x:
 	print('i is {}'.format(i))
 #
 # a dictionary is a searchable sequence of key value pairs using {}
-# and any item in the dictionary can be any data type
-print('\nthis is the dictionary example: ')
+# rem any item in the dictionary can be any data type
+# rem a dictionary structure is mutable
+print('\nthis is the dictionary example ========= ')
 x = { 'one' : 1,
 	  'two' : 2.0,
 	  'three' : '3',
 	  'four': 8/2,
 	  'five' : .05E2
 	}
+x[3] = 9/3 # rem a dictionary is mutable
+# print just the keys
+print('just the keys are: ')
 for i in x: # pull back just the keys
 	print('i is {}'.format(i))
+# print the keys with the values
+print('\nthe keys with the values are: ')	
 for k, v in x.items(): # pull back just the keys
-	print('k: {}, v: {}'.format(k, v))
+	print('k: {}, v: {}'.format(k, v), ',', type(v))
+	
+# type() and id() ========================
+# in python, everything is an object, so a Type is the same as a Class
+print('\nthis is the type() and id() example ================')
+x, y = ( 1, 2, 3, 4, 5 ), ( 1, 'two', 3.0, [4, 'four'], 5)
+print('x is {}'.format(x), '-->', type(x))
+print('y is {}'.format(y), '-->', type(y))
+#
+print('\ntypes for items in tuple X:')
+# note that the i in the for loop automatically starts counting at 1
+# instead of 0, so you will have to reset it to 0 if you want to
+# recall an item from the list or dictionary from within the loop,
+# otherwise the read activity will be looking for a memory block that
+# is out of range and you'll get an error 
+for i in x:
+	print('item ', i, 'is a ', type(x[i-1])) # set i counter to 0
+#
+print('\ntypes for items in tuple Y:')
+for i in x:
+	print('item ', i, 'is a ', type(y[i-1])) # set i counter to 0
+
+
 
 	
 	
