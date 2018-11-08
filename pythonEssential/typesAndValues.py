@@ -146,23 +146,25 @@ for k, v in x.items(): # pull back just the keys
 	
 # type() and id() ========================
 # in python, everything is an object, so a Type is the same as a Class
+# rem id() returns a unique identifier for each object
 print('\nthis is the type() and id() example ================')
 x, y = ( 1, 2, 3, 4, 5 ), ( 1, 'two', 3.0, [4, 'four'], 5)
-print('x is {}'.format(x), '-->', type(x))
-print('y is {}'.format(y), '-->', type(y))
+print('x is {}'.format(x), '/ type: ', type(x), ', id: ', id(x))
+print('y is {}'.format(y), '/ type:', type(y), ', id: ', id(y))
 #
-print('\ntypes for items in tuple X:')
+print('\nnotice how the unique id for x[0], y[0] and x[4], y[4] are the same in the following sequences:')
+print('types & ids for items in tuple X:')
 # note that the i in the for loop automatically starts counting at 1
 # instead of 0, so you will have to reset it to 0 if you want to
-# recall an item from the list or dictionary from within the loop,
+# recall an item from your list or dictionary from within the loop,
 # otherwise the read activity will be looking for a memory block that
 # is out of range and you'll get an error 
 for i in x:
-	print('item ', i, 'is a ', type(x[i-1])) # set i counter to 0
+	print('item ', i, 'is a ', type(x[i-1]), ', ', id(x[i-1])) # set i counter to 0
 #
-print('\ntypes for items in tuple Y:')
+print('\ntypes & ids for items in tuple Y:')
 for i in x:
-	print('item ', i, 'is a ', type(y[i-1])) # set i counter to 0
+	print('item ', i, 'is a ', type(y[i-1]), ', ', id(y[i-1])) # set i counter to 0
 
 
 
