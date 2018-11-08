@@ -22,7 +22,6 @@ else:
 #    a >= b        greater than or equal
 #    
 # logical operators:
-# 
 #    a and b       true if both a and b
 #    a or b        true if x or b
 #    not a         inverse state
@@ -52,6 +51,31 @@ else:
 #    ^             xor
 #    <<            shift left
 #    >>            shift right
+#
+# boolean operators:
+#    and           and
+#    or            or
+#    not           not
+#    in            value in set
+#    not in        value not in set
+#    is            same object identity  
+#    is not        not same object identity
+#
+# operator precedence:
+# (rem order in which operators are evaluated in compound expressions)
+#    exponent                **
+#    pos, neg                +x, -x
+#    mult, div, remainder    *, /, //, %
+#    add, subtract           +, -
+#    bitwise shift           <<, >>
+#    bitwise AND             &
+#    bitwise XOR             ^
+#    bitwise OR              |
+#    comparisons             in, not in, is, is not, <, <=, >, >=, !=, ==
+#    boolean NOT             not x
+#    boolean AND             and
+#    boolean OR              or
+
 
 # ternary operator (as of python 2.5) ==================
 print('\nternary operator example: ==========')
@@ -95,3 +119,45 @@ print('\nthe shift right operator >>:')
 x, y = 0x0a, 0x01
 z = x >> y
 printBits(x, y, z)
+
+# loops ==============================================
+# python has two basic forms of loops: while and for
+# while: uses a condition and executes loop while condition is true
+# for:   uses a sequence with a counter and executes until sequence terminates
+#
+# while loop example:
+print('\nwhile loop example (try cookie): =============')
+password = 'cookie'
+pw = ''
+while pw != password:
+    pw = input("What's the password? ")
+print('that is correct!')
+#
+# for loop example:
+print('\nfor loop example: =============')
+books = ('comic book', 'text book', 'picture book')
+for book in books:
+	print(book)
+	
+# additional loop controls
+# rem you can further control loops with continue, else, and break
+# continue    shortcuts current loop iteration and starts the next iteration
+# break       terminate the loop
+# else        executes if loop ends normally, won't run if break occurs
+print('\nwhile loop example with additional controls')
+print('try swordfish =============')
+secret = 'swordfish'
+pw = ''
+auth = False
+count = 0
+max_attempt = 5
+
+while pw != secret:
+    count = count + 1
+    if count > max_attempt: break
+    if count == 3: continue
+    pw = input( '{}: What is the secret word? '.format(count) )
+else:
+    auth = True
+	
+print('Authorized' if auth else 'Unable to authorize')
