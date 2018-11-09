@@ -1,35 +1,32 @@
 # decorators
 # A decorator is a form of metaprogramming and it can be described as a
 # special type of function that returns a wrapper function
+# in this example from bill weinmann, a wrapper is being used to measure
+# the time it takes to run a function
 
 # imports ===============================
-
+import time
 
 # functions =============================
-# f1 is the decorator function taking f3 as an argument
-# as declared by the decorator syntax preceding f3 below
-def f1(f):
-	def f2():
-		print('this is before the function call')
-		f() # call the function assigned to the arg f
-		print('this is after the function call')
-	return f2
-
-# using the decorator syntax, f3 is passed to f1
-# so that now f3 can't be called directly but only through the wrapper
-@f1
-def f3():
-	print('this is f3()')
+def elapsed_time(f):
+	def wrapper():
+		t1 = time.time()
+		f()
+		t2 = time.time()
+		print(f'Elapsed time: {(t2 - t1) * 1000} ms')
+	return wrapper
 	
+@elapsed_time
+def big_sum():
+	num_list = []
+	for num in (range(0, 100000)):
+		num_list.append(num)
+	print(f'Big sum: {sum(num_list)}')
 	
 # main() ================================
 def main():
 	# start main
-	  
-	f3()  # call f3 through the wrapper
-	
-	# to see how decorators can be useful in practice,
-	# look at the file decorators3.py
+	big_sum()
 	
 
 
