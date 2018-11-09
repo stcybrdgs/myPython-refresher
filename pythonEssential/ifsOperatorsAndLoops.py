@@ -161,3 +161,4 @@ else:
     auth = True
 	
 print('Authorized' if auth else 'Unable to authorize')
+skills = [ 'Staffing', 'Training', 'Operations', 'P&L', 'Cheer Leading' ]
