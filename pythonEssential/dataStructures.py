@@ -126,7 +126,14 @@ def main():
 	for v in animals.values():
 		print(v)		
 	
+	print('Cat says: ', animals['cat'])               # return value based on key
+	animals['dog'] = 'Ruff!'                          # update a value based on key
+	animals['lion'] = 'Rawr!'                         # add a new k:v pair
+	print('Lion is in animals: ', 'lion' in animals)  # use IN to search for key
+	print_Dict('h', 'animals', animals)
 	
+	# use get() method to see if a key is in a dictionary and return None if it isn't
+	print(animals.get('Elephant'))
 	
 	
 
