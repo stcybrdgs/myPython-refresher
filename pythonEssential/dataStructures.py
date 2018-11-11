@@ -9,21 +9,48 @@
 # imports ===============================
 
 
-# functions =============================
-# populate the list
+# FUNCTIONS ##################################
+
+# list functions =============================
 def populateList(listArg):
 	items = ['Benedetto', 'Collings', 'Martin', 'Gibson']
 	i = 0
 	while (i < len(items)):
 		i += 1
 		listArg.append(items[i-1])
-	
+
+# dictionary functions =============================
+def populateDictionary(listArg):
+	key = ['dog', 'cat', 'cow', 'duck']
+	value = ['bark', 'meow', 'moo', 'quack']
+	i = 0
+	while (i < len(key)):
+		i += 1
+		listArg.update( { key[i-1]:value[i-1] } )	
+		
+def print_Dict(dir, name, dObj):
+	if( dir == 'h' ):
+		print('dictionary ', name, ': ', dObj)
+	elif( dir =='v' ):
+		print('dictionary ', name, ': ')
+		for x in dObj:
+			print(f'{x}:{dObj[x]}')
+		# the other way to print key:value pairs is to use the item() method:
+		# for k, v in dObj.items():
+		#     print(f'{k}:{v}')
+		
+	else:
+		print('invalid dictionary print direction.')
 		
 # main() ================================
 def main():
 	guitar = []
 	populateList(guitar)
 	
+	#
+	# LISTS 
+	#
+	print('\nLISTS =====================' )
 	# locating items in a list --------------------------
 	# print index items 1 and 2
 	print('items guitar[1][2] --> ', guitar[1], guitar[2])
@@ -56,7 +83,52 @@ def main():
 	guitar.pop(0)              # pop by index
 	del guitar[0]              # delete by index
 	print(','.join(guitar))    # print comma separatedlist
-
+	
+	#
+	# DICTIONARIES 
+	#
+	print('\nDICTIONARIES ===============' )
+	# you may create a dictionary with a basic declaration
+	numbers = { 'one':1, 'two':2, 'three':3 }
+	
+	# you may create a dictionary with a dictionary constructor
+	# and keyword arguments
+	colors = dict( sky = 'blue', grass = 'green', sun = 'yellow' )
+	
+	# you may declare an empty dictionary and populate with
+	# parallele arrays through a loop
+	animals = {}
+	populateDictionary(animals)
+	
+	# use print_dict(dir, name, dObj) to print you dictionaries
+	# print horizontally
+	print_Dict('h', 'numbers', numbers)
+	print_Dict('h', 'colors', colors)
+	print_Dict('h', 'animals', animals)
+	
+	# print vertically
+	print_Dict('v', 'numbers', numbers)
+	print_Dict('v', 'colors', colors)
+	print_Dict('v', 'animals', animals)
+	
+	# print using items() method:
+	print('dictionary animals (key:value):')
+	for k, v in animals.items():
+		print(f'{k}:{v}')
+		
+	# print just the keys using keys() method:
+	print('dictionary animals (keys only):')
+	for k in animals.keys():
+		print(k)
+		
+	# print just the values using values() method:
+	print('dictionary animals (values only):')
+	for v in animals.values():
+		print(v)		
+	
+	
+	
+	
 
 # end main()
 if __name__ == '__main__': main()
