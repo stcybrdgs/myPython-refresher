@@ -40,21 +40,21 @@ class Animal:
 # child classes
 class Cat(Animal):
     def __init__(self, **kwargs):
-        self._type = 'Cat'
-        if 'type' in kwargs: del kwargs['type']
+        if 'type' not in kwargs: self._type = 'Cat'
         super().__init__(**kwargs) # call and initialize parent class
     
 class Dog(Animal):
     def __init__(self, **kwargs):
-        self._type = 'Dog'
-        if 'type' in kwargs: del kwargs['type']
+        if 'type' not in kwargs: self._type = 'Dog'
         super().__init__(**kwargs)    
 
 class Pony(Animal):
     def __init__(self, **kwargs):
-        self._type = 'Pony'
-        if 'type' in kwargs: del kwargs['type']
+        if 'type' not in kwargs: self._type = 'Pony'
         super().__init__(**kwargs)
+    
+    def gait(self, g):
+        print(f'{self.name()} will now travel at a {g}!')
 
 # main() =======================================
 def main():
@@ -65,5 +65,8 @@ def main():
     barnyard = (a0, a1, a2)
     for a in barnyard:
         print(a)
+    
+    a2.gait('trot')
+    a2.gait('gallop')
     
 if __name__ == '__main__': main()
