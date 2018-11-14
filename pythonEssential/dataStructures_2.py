@@ -31,6 +31,22 @@ def main():
 	print('set b: ')
 	print(b)
 	
+	# return the members of set a that are not in set b:
+	print('\nset a-b: ')
+	print_set(a - b, 'ordered')
+	
+	# return the members of set a OR set b:
+	print('\nset a | b: ')
+	print_set(a | b, 'ordered')
+	
+	# return the members of set a XOR set b (in either but not both):
+	print('\nset a ^ b: ')
+	print_set(a ^ b, 'ordered')	
+	
+	# return the members in both set a AND set b:
+	print('\nset a & b: ')
+	print_set(a & b, 'ordered')
+	
 	# List comprehension
 	
 	# Mixed structures
