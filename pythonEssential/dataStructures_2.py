@@ -3,6 +3,10 @@
 # imports ===============================
 from math import pi
 
+# globals ===============================
+# var to manage nesting level for the mixed structures section
+dlevel = 0
+
 # FUNCTIONS ##################################
 # sets don't allow duplicates, so printing a set that contains a string
 # returns an unordered list of the unique letters that comprise the string;
@@ -19,7 +23,7 @@ def print_list(listArg):
 	for x in listArg:
 		print(x, end = ' ')
 	print()
-		
+
 # main() ================================
 def main():
 	#
@@ -69,24 +73,16 @@ def main():
 	seq4 = [(x, x**2) for x in seq1]
 	seq5 = [round(pi, x) for x in seq1]
 	seq6 = {x: x**2 for x in seq1}  # use seq to make a dictionary
+	seq7 = {x for x in 'solomongrundy' if x not in 'grundy'} # use seq to make a set
 	
 	# print the list comprehensions
-	seqList = [seq1, seq2, seq3, seq4, seq5, seq6]
+	seqList = [seq1, seq2, seq3, seq4, seq5, seq6, seq7]
 	count = 1
-	while ( count <= 6):
+	while ( count <= 7):
 		print('\nseq', count, ': ')
 		print_list(seqList[count-1])
 		count += 1
 	
-	
-	
-	#
-	# Mixed structures
-	# 
-
-	
-	
-
 # end main()
 if __name__ == '__main__': main()
 
