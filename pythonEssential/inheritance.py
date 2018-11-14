@@ -1,6 +1,12 @@
 # inheritance.py
 #
 #
+
+# imports ====================================
+
+
+# classes ====================================
+# super class (base class, template)
 class Animal:
     # class constructor
     # here, Animal is serving as a base class, so we aren't providing default values in the constructor
@@ -11,34 +17,53 @@ class Animal:
         if 'sound' in kwargs: self._sound = kwargs['sound']
         
     # class methods
-    # the following methods are both setters and getters
-    # bc if no value is passed in, then they get the current existing value,
-    # but if a value is passed in, then they set the value
+    # rem bc we aren't using default values, our setters/getters need to check to make sure that a value
+    # already exists before trying to return it
     def type(self, t = None):
         if t: self._type = t
-        return self._type
+        try: return self._type
+        except AttributeError: return None
 
     def name(self, n = None):
         if n: self._name = n
-        return self._name
+        try: return self._name
+        except AttributeError: return None
 
     def sound(self, s = None):
         if s: self._sound = s
-        return self._sound
+        try: return self._sound
+        except AttributeError: return None
     
-    # the __str__ method is a specially named method which provides the string representation of the object
-    # (see more such specially named methods under Data Model in the python documentation)
     def __str__(self):
         return f'The {self.type()} is named "{self.name()}" and says "{self.sound()}".'
 
+# child classes
+class Cat(Animal):
+    def __init__(self, **kwargs):
+        self._type = 'Cat'
+        if 'type' in kwargs: del kwargs['type']
+        super().__init__(**kwargs) # call and initialize parent class
+    
+class Dog(Animal):
+    def __init__(self, **kwargs):
+        self._type = 'Dog'
+        if 'type' in kwargs: del kwargs['type']
+        super().__init__(**kwargs)    
+
+class Pony(Animal):
+    def __init__(self, **kwargs):
+        self._type = 'Pony'
+        if 'type' in kwargs: del kwargs['type']
+        super().__init__(**kwargs)
+
+# main() =======================================
 def main():
-    # rem here we are encapsulating variable data, which means that it belongs to the object, not the class
-    a0 = Animal(type = 'cat', name = 'Garfield', sound = 'meow')
-    a1 = Animal(type = 'Duck', name = 'Howard', sound = 'Quack')
-    a2 = Animal()
-    print(a0)
-    print(a1)
-    print(a2)
-
-
+    a0 = Cat(name = 'Mister', sound = 'Purr')
+    a1 = Dog(name = 'Jazz', sound = 'Bark')
+    a2 = Pony(name = 'Mr. Ed', sound = 'Neigh')
+    
+    barnyard = (a0, a1, a2)
+    for a in barnyard:
+        print(a)
+    
 if __name__ == '__main__': main()
