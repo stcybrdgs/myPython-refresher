@@ -1,18 +1,12 @@
 # overview of string objects
-# rem strings are objects and
-# rem strings are first class objects in python 3
-
-
-# imports =================
+#     rem strings are objects and
+#     rem strings are first class objects in python 3
 
 
 # classes =================
 class MyString(str):       # rem str is the built-in string class in python
 	def __str__(self):
 		return self[::-1]  # reverse the string to read right to left
-
-
-# functions ===============
 
 
 # main() ==================
@@ -45,7 +39,7 @@ def main():
 	print('s4 : {}'.format(s4), ', s4 id: {}'.format(id(s4)))
 	print('s5 : {}'.format(s5), ', s5 id: {}'.format(id(s5)))
 	
-    #
+	#
 	# formatting examples
 	#
 	print('\nformatting examples: ------------------')
@@ -88,8 +82,5 @@ def main():
 	j2 = ' '.join(l)
 	print(j2)         # joins the contents of the split() liston the character ' '
 	
-
-  
-    
 
 if __name__ == '__main__': main()
