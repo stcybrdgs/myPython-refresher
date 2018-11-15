@@ -17,6 +17,7 @@ def disp(o):
     global dlevel
 
     dlevel += 1
+    # use isinstance() to determine which data structure is being used
     if   isinstance(o, list):  print_list(o)
     elif isinstance(o, range): print_list(o)
     elif isinstance(o, tuple): print_tuple(o)
