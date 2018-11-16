@@ -5,14 +5,36 @@ def main():
 	# open a file and return a file object (here, 'f')
 	# rem the file object itself is an iterator
 	#     and can be operated upon with a loop 
-	f = open('lines.txt')     
+	f = open('lines.txt', 'rt')     
 	for line in f:
 		# print(line)           # print each line including returns
 		print(line.rstrip())  # print each line without returns
+	f.close()
 	
+	# create read file object and write file object
+	infile = open('lines.txt', 'rt')
+	outfile = open('lines-copy.txt', 'wt')
+		
 	# use iterator with a loop to open the file one line at a time
 	# without having to buffer the whole file in memory
-
+	print('\nwriting to external file:')
+	for line in infile:
+		print(line.rstrip(), file=outfile)
+		print('.', end='', flush=True) # rem flush the output buffer
+	outfile.close()
+	infile.close()
+	print('\nDone.')
+	
+	infile = open ('C:\\Users\\Owner\\AppData\\Local\\Programs\\Python\\Python37-32\\lib\\this.py', 'rt')
+	outfile = open('importThis.txt', 'wt')
+	print('\nwriting to external file again:')
+	for line in infile:
+		print(line.rstrip(), file=outfile)
+		print('.', end='', flush=True) # rem flush the output buffer
+	outfile.close()
+	infile.close()
+	print('\nDone.')
+	
     # open() takes argument
 	# it opens a file as read-only and text mode by default
 	# arg 'w' means 'write' mode
