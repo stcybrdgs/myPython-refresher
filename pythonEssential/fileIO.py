@@ -19,7 +19,7 @@ def main():
 	# without having to buffer the whole file in memory
 	print('\nwriting to external file:')
 	for line in infile:
-		print(line.rstrip(), file=outfile)
+		print(line.rstrip(), file=outfile) # equivalent method: outfile.writelines(line)
 		print('.', end='', flush=True) # rem flush the output buffer
 	outfile.close()
 	infile.close()
@@ -29,7 +29,7 @@ def main():
 	outfile = open('importThis.txt', 'wt')
 	print('\nwriting to external file again:')
 	for line in infile:
-		print(line.rstrip(), file=outfile)
+		outfile.writelines(line)
 		print('.', end='', flush=True) # rem flush the output buffer
 	outfile.close()
 	infile.close()
