@@ -1,12 +1,6 @@
 # python containers
 
 
-# imports ===================
-
-
-# functions =================
-
-
 # main ======================
 def main():
 	# misc built-in functions
