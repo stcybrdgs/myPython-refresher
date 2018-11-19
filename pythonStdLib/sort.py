@@ -35,13 +35,4 @@ def main():
 	print(sorted(students, key=lambda student:student[2], reverse=True))	
 
 
-	
-
-	
-
-	
-	
-
-
-
 if __name__=='__main__':main()
