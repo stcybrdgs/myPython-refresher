@@ -1,7 +1,7 @@
 import myModule
 
 def main():
-	myAddObj = addNums()
+	myAddObj = myModule.addNums()
 	print(myAddObj.add(1,2))
 
 
