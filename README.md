@@ -1,2 +1,2 @@
 # myPython-refresher
-A scratch sheet of Python patterns for refresher purposes.
+A scratch set of Python notes, apps, and patterns for refresher purposes.

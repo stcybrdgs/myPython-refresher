@@ -3,7 +3,7 @@
 # a username or password, you should use the entry widget.
 # it provides a simple, one-line text entry box for the user to type in the info,
 # and it is limited to just one line.
-# (so, )if you need the user to be able to enter multiple lines of text, then you will
+# (if you need the user to be able to enter multiple lines of text, then you will
 # need to use the text widget instead.)
 
 # imports ====================================
