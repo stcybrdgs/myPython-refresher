@@ -107,3 +107,9 @@ stepValLabel.grid(row = 5, column = 0)
 stopValLabel.grid(row = 5, column = 1)
 
 root.mainloop()
+
+# main ============================================
+def main():
+	print('Done.')
+	
+if __name__=='__main__': main()
