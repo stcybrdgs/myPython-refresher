@@ -10,15 +10,20 @@
 from tkinter import *
 from tkinter import ttk
 
+# functions ===========================
+def getMonth():
+	thisMonth = 'Month is ' + str(month.get())
+	labelGetMonth.config(text = thisMonth)
+
 # tkinter =============================
 root = Tk()
 
-# combo box
-month = StringVar() # use var to hold value for combo box
-
-# rem textvariable is the variable that will be tied to the
-# value that is selected in the combo box
-combobox = ttk.Combobox(root, textvariable = month)
+# combobox for month
+monthLabel = ttk.Label(root, text = 'Select Month:')
+monthLabel.pack()
+month = StringVar() # holde a selected value in combo box
+month.set('Jan') # initial value
+combobox = ttk.Combobox(root, textvariable = month) # textvariable is selected value
 combobox.pack()
 combobox.config(
 	values = (
@@ -26,7 +31,23 @@ combobox.config(
 		'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
 		)
 	)
-month.set('Jan')
+
+# use button to get month and show it in label
+monthStr = 'Month is ' + month.get()
+labelGetMonth = ttk.Label(root, text = monthStr)
+bttnGetMonth = ttk.Button(root, text = 'Get Month')
+bttnGetMonth.config(command = getMonth)
+labelGetMonth.pack()
+bttnGetMonth.pack()
+
+# spinbox
+# the spinbox is not available as a ttk widget, only as an original tk widget
+# so to create it, you don't need the ttk prefix
+# the from parameter uses an uderscore to differentiate it from the python keyword
+year = StringVar()
+Spinbox(root, from_ = 1990, to = 2014, textvariable = year).pack()
+
+
 
 
 
