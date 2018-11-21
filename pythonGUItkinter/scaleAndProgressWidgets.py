@@ -106,6 +106,26 @@ stopValLabel = ttk.Label(root, text = str(stopVal))
 stepValLabel.grid(row = 5, column = 0)
 stopValLabel.grid(row = 5, column = 1)
 
+# scale slider bar --------------------------------
+# link a scale slider bar to a progress bar
+progressbar3 = ttk.Progressbar(root, orient = HORIZONTAL, length = 200) # length in pix
+progressbar3.config(mode = 'determinate', maximum = 11.0, value = 0.0)
+progressbar3.grid(row = 6, column = 0, columnspan = 2)
+
+# tie progressbar3 to value of scale slider
+scaleValue = DoubleVar()  
+progressbar3.config(variable = scaleValue)
+scale = ttk.Scale(
+	root,
+	orient = HORIZONTAL,
+	length = 200,
+	variable = scaleValue,
+	from_ = 0.0,
+	to = 11.0
+	)
+scale.grid(row = 7, column = 0, columnspan = 2)
+
+# start tkinter loop
 root.mainloop()
 
 # main ============================================
