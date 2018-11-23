@@ -28,6 +28,7 @@ treeview.insert('', '0', 'item1', text = 'First Item') # (parent, index, iid=Non
 treeview.insert('', '2', 'item2', text = 'Second Item')
 treeview.insert('', 'end', 'item3', text = 'Third Item')
 treeview.insert('', 'end', 'item4', text = 'Fourth Item')
+treeview.insert('', 'end', 'item5', text = 'Fifth Item')
 
 # add images, using the subsample() method to shrink it
 logo = PhotoImage (file = 'python_logo.gif').subsample(10,10)
@@ -35,7 +36,7 @@ treeview.insert('item2', 'end', 'pythonLogo', text='Python', image = logo)
 
 # change the height property to indicate how many items you want treeveiw
 # to be able to display at one time
-treeview.config(height = 5)
+treeview.config(height = 10)
 
 # you can rearrange items in the treeview with the move() method, but you
 # can't move an item to be underneath one of its own
@@ -65,6 +66,7 @@ treeview.detach('item3')
 # use move() to reattach item3 under item2 at the top of
 # the item2 listing
 treeview.move('item3', 'item2', '0')
+treeview.move('item1', 'item5', '0')
 
 # to completely remove an item, use delete()
 treeview.delete('item4')
