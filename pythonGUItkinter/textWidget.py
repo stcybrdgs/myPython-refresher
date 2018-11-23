@@ -18,6 +18,25 @@ def getLine1():
 	# ie, up until the first invisible end of line character
 	textInfo = text.get('1.0', '1.end')
 	label.config(text = textInfo)
+
+def insertPass():
+	# get password
+	passInfo = password.get()
+	
+	# insert password two logical lines below start of textbox
+	text.insert('1.0 + 2 lines', '\n' + passInfo)
+
+def replaceLine1():
+	#text.delete('1.0', '1.0 lineend')
+	text.replace('1.0', '1.0 lineend', 'The first line has been replaced')
+	
+def clearText():
+	# delete method
+	# if you provide one parameter, the method will delete the character at the
+	# specified position, ie text.delete('1.0'),
+	# but if you provide 2 parameters, it will delete the range from the first parameter
+	# to the last parameter, non-inclusive
+	text.delete('1.0', 'end')
 	
 # tkinter ====================================
 root = Tk()
@@ -27,7 +46,8 @@ text = Text(root, width = 40, height = 10)
 text.pack()
 
 # control where the text box will wrap
-text.config(wrap='word') # char, none, word"
+# rem the wrap attribute can be 'char', 'none', or 'word'
+text.config(wrap='word', relief = RIDGE) 
 
 # the text widget needs to index characters across multiple lines,
 # so it accepts indices arguments of specially formatted strings
@@ -43,6 +63,10 @@ text.config(wrap='word') # char, none, word"
 # AND you can string together as many of these modifiers as you need to, and
 # they will be evaluated in order from the left to the right.
 
+# entry field for password
+password = ttk.Entry(root, width = 30)
+password.pack()
+
 # button to return the entire contents of the text widget
 buttonAll = ttk.Button(root, text = 'Get All Text')
 buttonAll.pack()
@@ -53,14 +77,24 @@ buttonLine1 = ttk.Button(root, text = 'Get 1st Line of Text')
 buttonLine1.pack()
 buttonLine1.config(command = getLine1)
 
+# button to insert password into text field
+buttonInsertPass = ttk.Button(root, text = 'Insert Password')
+buttonInsertPass.pack()
+buttonInsertPass.config(command = insertPass)
+
+# button to replace the first line in the text field
+buttonReplace = ttk.Button(root, text = 'Replace First Line')
+buttonReplace.pack()
+buttonReplace.config(command = replaceLine1)
+
+# button to clear the text field
+buttonClear = ttk.Button(root, text = 'Clear Text')
+buttonClear.pack()
+buttonClear.config(command = clearText)
+
 # label to display text returned from each button
 label = ttk.Label(root, text = 'empty')
 label.pack()
-
-
-
-
-
 
 # tkinter loop
 root.mainloop()
