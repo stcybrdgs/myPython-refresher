@@ -1,0 +1,72 @@
+# textWidget.py
+# rem read through tk documentation for all of the great things you can do
+#     with the text widget
+
+# imports ====================================
+from tkinter import *
+from tkinter import ttk
+# the text widget is not a themed widget, btw
+
+# functions ==================================
+def getAllText():
+	# get all text that is in the text box
+	textInfo = text.get('1.0', 'end')
+	label.config(text = textInfo)
+	
+def getLine1():
+	# get text from start of text box to end of first logical line
+	# ie, up until the first invisible end of line character
+	textInfo = text.get('1.0', '1.end')
+	label.config(text = textInfo)
+	
+# tkinter ====================================
+root = Tk()
+
+# make a text box
+text = Text(root, width = 40, height = 10)
+text.pack()
+
+# control where the text box will wrap
+text.config(wrap='word') # char, none, word"
+
+# the text widget needs to index characters across multiple lines,
+# so it accepts indices arguments of specially formatted strings
+# ' base modifer modifier', where base is starting point and
+# the modifiers are optional to adjust the index from the starting point,
+# a common type of base format is line.char, where,
+# for example 4.2 would refer to th eposition in front of char 2 on line 4;
+# base 1.0 would refer to the beginning of the text box.
+# 'end' refers to the last position in the text box
+# you can also increment +/- by # chars or # lines
+# or you can use linsestart, lineend, wordstart, and wordend
+# to move the pointer  as needed
+# AND you can string together as many of these modifiers as you need to, and
+# they will be evaluated in order from the left to the right.
+
+# button to return the entire contents of the text widget
+buttonAll = ttk.Button(root, text = 'Get All Text')
+buttonAll.pack()
+buttonAll.config(command = getAllText)
+
+# button to return just the first logical line
+buttonLine1 = ttk.Button(root, text = 'Get 1st Line of Text')
+buttonLine1.pack()
+buttonLine1.config(command = getLine1)
+
+# label to display text returned from each button
+label = ttk.Label(root, text = 'empty')
+label.pack()
+
+
+
+
+
+
+# tkinter loop
+root.mainloop()
+
+# main() ====================================
+def main():
+	print('Done.')
+	
+if __name__ == '__main__': main()
