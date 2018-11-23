@@ -7,6 +7,9 @@ from tkinter import *
 from tkinter import ttk
 # the text widget is not a themed widget, btw
 
+# global =====================================
+disabled = 0
+
 # functions ==================================
 def getAllText():
 	# get all text that is in the text box
@@ -37,7 +40,18 @@ def clearText():
 	# but if you provide 2 parameters, it will delete the range from the first parameter
 	# to the last parameter, non-inclusive
 	text.delete('1.0', 'end')
-	
+
+def disableText():
+	global disabled
+	if (disabled == 0):
+		disabled = 1
+		text.config(state = 'disabled')
+		buttonDisable.config(text = 'Enable Text Field')
+	else:
+		disabled = 0
+		text.config(state = 'normal')
+		buttonDisable.config(text = 'Disable Text field')
+
 # tkinter ====================================
 root = Tk()
 
@@ -91,6 +105,11 @@ buttonReplace.config(command = replaceLine1)
 buttonClear = ttk.Button(root, text = 'Clear Text')
 buttonClear.pack()
 buttonClear.config(command = clearText)
+
+# button to enable/disable text field
+buttonDisable = ttk.Button(root, text='Disable Text Field')
+buttonDisable.pack()
+buttonDisable.config(command = disableText)
 
 # label to display text returned from each button
 label = ttk.Label(root, text = 'empty')
