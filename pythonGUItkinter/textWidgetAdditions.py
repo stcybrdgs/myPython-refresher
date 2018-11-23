@@ -47,7 +47,8 @@ def submitHandler():
 	elif( tagOp.get() == 'Highlight' ):
 		label.config(text = tagString)
 	elif( tagOp.get() == 'Get Range' ):
-		label.config(text = tagString)
+		if
+		label.config(text = 'start: ' + recentTagStart + ', end: ' + recentTagEnd)
 
 # tkinter ====================================
 root = Tk()
