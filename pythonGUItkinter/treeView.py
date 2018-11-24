@@ -65,11 +65,34 @@ treeview.detach('item3')
 
 # use move() to reattach item3 under item2 at the top of
 # the item2 listing
-treeview.move('item3', 'item2', '0')
+treeview.move('item3', 'item2', '0') # pathname move item parent index
 treeview.move('item1', 'item5', '0')
 
 # to completely remove an item, use delete()
 treeview.delete('item4')
+
+# insert a new top level index
+treeview.insert('', '0', 'item0', text = '0th Item')
+
+
+# add an additional column to the tree and name it version
+treeview.config(columns = ('version'))
+treeview.column('version',
+				width = 100,
+				anchor = 'center'
+				) # column(nameOfColumn, **args)
+
+# rever to the main treeview column as #0
+treeview.column('#0', width = 150)
+
+# use heading method to display column names
+treeview.heading('version', text = 'Version')
+treeview.heading('#0', text = 'Main')
+
+# to configure a value for a slot within a column, use set()
+# .set(itemInHierarchy, columnForContent, content)
+treeview.set('item0', 'version', '0')
+treeview.set('pythonLogo', 'version', '3.4.1') 
 
 # tkinter loop
 root.mainloop()
