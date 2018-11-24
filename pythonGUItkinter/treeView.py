@@ -26,7 +26,8 @@ treeview.pack()
 # the fourth+ parameters (ie, **kv) are optional, and you can add as many as you need to
 treeview.insert('', '0', 'item1', text = 'First Item') # (parent, index, iid=None, **kv)
 treeview.insert('', '2', 'item2', text = 'Second Item')
-treeview.insert('', 'end', 'item3', text = 'Third Item')
+# you may include tags property among your **kv
+treeview.insert('', 'end', 'item3', text = 'Third Item', tags=('software')) 
 treeview.insert('', 'end', 'item4', text = 'Fourth Item')
 treeview.insert('', 'end', 'item5', text = 'Fifth Item')
 
@@ -93,6 +94,32 @@ treeview.heading('#0', text = 'Main')
 # .set(itemInHierarchy, columnForContent, content)
 treeview.set('item0', 'version', '0')
 treeview.set('pythonLogo', 'version', '3.4.1') 
+
+# as with text, you can add tags in your treeview
+# by adding tags to treeview items, you can modify their
+# properties as groups
+# tags may be added at the time of creation with the tags property
+# or they may be added later using the "item" method
+treeview.item('pythonLogo', tags=('software'))
+treeview.tag_configure('software', background = 'yellow')
+
+# treeview callback event -----------------------
+#
+# the treeview widget does not support a command callback to
+# execute code when an item is selected; instead, you can listen to
+# virtual events from the treeview (there's three of these events)
+# one such event is the 'bind' method which does a callback when
+# a selection is made
+treeviewSelectLabel = ttk.Label(root, text = 'Treeview Selection')
+treeviewSelectLabel.pack()
+
+def callback(event):
+	string = 'Treeview Selection ' + str(treeview.selection())
+	treeviewSelectLabel.configure(text = string)
+
+# use 'bind' to configure the callback event
+treeview.bind('<<TreeviewSelect>>', callback)	
+
 
 # tkinter loop
 root.mainloop()
