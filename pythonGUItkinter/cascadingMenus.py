@@ -1,6 +1,5 @@
 # cascadingMenus.py
 
-
 # imports ====================================
 from tkinter import *
 from tkinter import ttk
@@ -8,7 +7,8 @@ from tkinter import ttk
 
 # tkinter ====================================
 root = Tk()
-root.geometry('200x100')
+root.title('My New App')
+root.geometry('240x140')
 # tell Tk object that each meunu in interface should not be
 # of the tearoff type (Tkinter defaults to tearoff menus as a
 # legacy feature, but tearoff menus oare not part of modern GUI design)
@@ -58,8 +58,42 @@ file_.add_command(label = 'Close', command = lambda: menuInfo.configure(text='Cl
 # add shortcut properties using the accelerator property of the entry config method
 # rem the accelerator property does not actually create the shortcut but only
 # formats the shortcut key to the right of the menu item
+# (event binding can be used to actually create the shortcuts)
 file_.entryconfig('New', accelerator = 'Ctrl + N')
 file_.entryconfig('Save', accelerator = 'Ctrl + S')
+
+# you can use PhotoImage and .entryconfig to add images to your menu
+logo = PhotoImage(file = 'python_logo.gif').subsample(15,15)
+file_.entryconfig('Open...', image = logo, compound = 'left')
+
+# you can disable menu items using state
+file_.entryconfig('Delete', state = 'disabled')
+
+# in addition to adding commands to a menu, you can also add other menus to create submenus
+# here, we can create a save submenu
+file_.delete('Save') # delete original save menu item
+save = Menu(file_) # create save menu item as child of the file_ menu item
+file_.add_cascade(menu = save, label = 'Save')
+save.add_command(label = 'Save As...', command = lambda: menuInfo.configure(text = 'Saving As...'))
+save.add_command(label = 'Save All...', command = lambda: menuInfo.configure(text = 'Saving All...'))
+save.entryconfig('Save As...', accelerator = 'Ctrl + S') # cormat shortcut keys
+
+# you can also add radio buttons and check buttons to menus
+choice = IntVar()
+edit.add_separator()
+choose = Menu(edit)
+edit.add_cascade(menu = choose, label = 'Select Level   ')
+choose.add_radiobutton(label = 'One', variable = choice, value = 1,
+					   command = lambda: menuInfo.configure(text = 'Select Level One'))
+choose.add_radiobutton(label = 'Two', variable = choice, value = 2,
+					   command = lambda: menuInfo.configure(text = 'Select Level Two'))
+choose.add_radiobutton(label = 'Three', variable = choice, value = 3,
+					   command = lambda: menuInfo.configure(text = 'Select Level Three'))
+
+# you can create popup menus at specific locations on the screen with post() method
+# this method takes (x,y) coordinates of the location for the popup menu
+# based on the entire screen (not just the Tk window ), starting from top left hand corner
+file_.post(400,300)
 
 # tkinter loop
 root.mainloop()
