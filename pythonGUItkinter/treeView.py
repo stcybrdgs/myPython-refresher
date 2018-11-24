@@ -118,8 +118,29 @@ def callback(event):
 	treeviewSelectLabel.configure(text = string)
 
 # use 'bind' to configure the callback event
-treeview.bind('<<TreeviewSelect>>', callback)	
+treeview.bind('<<TreeviewSelect>>', callback)
 
+# notice that by default the treeview uses an 'extended select mode'
+# that allows multiple items to be selected at once;
+# you may modify the select mode by setting the 'select mode' property
+# (if you want the user to only be able to select one item at a
+# time, specify 'browse' mode)
+treeview.config(selectmode = 'browse') # select one item at a time
+treeview.config(selectmode = 'none') # select no item
+
+# to programmatically select tree items, use
+# selection_add
+treeview.selection_add('pythonLogo')
+
+# rem lu selection_move and selection_toggle
+
+# to programmatically unselect items, use selection_remove
+treeview.selection_remove('pythonLogo')
+
+# to programmatically toggle items, use selection_toggle,
+# and the item will be either selected or unselected based on
+# the current selected state of the item
+treeview.selection_toggle('pythonLogo')
 
 # tkinter loop
 root.mainloop()
