@@ -36,15 +36,15 @@ def changeLine():
 		changeLineCount = 0
 		canvas.coords(line, 160, 360, 480, 120,)		
 
-def smoothSelect():
-	if(smoothIt.get() == 'Normal'):
-		#smoothIt.set('Smooth')
-		canvas.itemconfigure(line, smooth = 'True')
-	else:
-		smoothIt.set('Normal')
+def stateSelect():
+	if(state.get() == 'Normal'):
 		canvas.itemconfigure(line, smooth = False)
+	else:
+		canvas.itemconfigure(line, smooth = True)
 	
-	print(smooth.get())
+def splineSelect():
+		numSegments = int(splineNum.get())
+		canvas.itemconfigure(line, splinesteps = numSegments)
 	
 # tkinter ====================================
 root = Tk()
@@ -71,6 +71,23 @@ line = canvas.create_line(
 
 # change the line color to red
 canvas.itemconfig(line, fill = 'blue')
+
+# spline options
+# spline draws the smoothness of the line according to a specified number of
+# line segments, where more segments result in a smoother line
+splineFrame = ttk.Frame(root)
+splineFrame.grid(row = 1, column = 1)
+ttk.Label(splineFrame, text ='SPLINE:').pack()
+splineNum = StringVar()
+splineNum.set('100')
+ttk.Radiobutton(splineFrame, text = '2', variable = splineNum, value = '2', command = splineSelect).pack() 
+ttk.Radiobutton(splineFrame, text = '4', variable = splineNum, value = '4', command = splineSelect).pack()
+ttk.Radiobutton(splineFrame, text = '6', variable = splineNum, value = '6', command = splineSelect).pack()
+ttk.Radiobutton(splineFrame, text = '8', variable = splineNum, value = '8', command = splineSelect).pack()
+ttk.Radiobutton(splineFrame, text = '10', variable = splineNum, value = '10', command = splineSelect).pack()
+ttk.Radiobutton(splineFrame, text = '20', variable = splineNum, value = '20', command = splineSelect).pack()
+ttk.Radiobutton(splineFrame, text = '30', variable = splineNum, value = '30', command = splineSelect).pack()
+ttk.Radiobutton(splineFrame, text = '100', variable = splineNum, value = '100', command = splineSelect).pack()
 
 # radio options
 radioFrame = ttk.Frame(root)
