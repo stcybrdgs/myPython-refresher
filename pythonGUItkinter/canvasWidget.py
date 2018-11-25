@@ -8,11 +8,34 @@ from tkinter import *
 from tkinter import ttk
 # canvas widgets are not part of ttk
 
+# globals ====================================
+changeLineCount = 0
+
 # functions ==================================
 def radioSelect():
-	infoStr = 'The color is: ' + color.get()
+	radioColor = color.get()
+	canvas.itemconfig(line, fill = radioColor)
+	infoStr = 'The color is: ' + radioColor
 	infoContent.configure(text = infoStr)
-
+	
+def changeLine():
+	global changeLineCount
+	if(changeLineCount == 0): 
+		changeLineCount += 1
+		canvas.coords(line, 0, 0, 320, 240, 640, 0)
+	elif(changeLineCount == 1):
+		changeLineCount += 1
+		canvas.coords(line, 0, 480, 320, 240, 640, 480)
+	elif(changeLineCount == 2):
+		changeLineCount += 1
+		canvas.coords(line, 320, 0, 320, 480)
+	elif(changeLineCount == 3):
+		changeLineCount += 1
+		canvas.coords(line, 0, 240, 640, 240)
+	elif(changeLineCount == 4):
+		changeLineCount = 0
+		canvas.coords(line, 160, 360, 480, 120,)		
+		
 # tkinter ====================================
 root = Tk()
 
@@ -37,7 +60,7 @@ line = canvas.create_line(
 # in the script above)
 
 # change the line color to red
-canvas.itemconfig(line, fill = 'red')
+canvas.itemconfig(line, fill = 'blue')
 
 # radio options
 radioFrame = ttk.Frame(root)
@@ -51,11 +74,16 @@ ttk.Radiobutton(radioFrame, text = 'Yellow', variable = color, value = 'Yellow',
 ttk.Radiobutton(radioFrame, text = 'Green', variable = color, value = 'Green', command = radioSelect).pack()
 ttk.Radiobutton(radioFrame, text = 'Brown', variable = color, value = 'Brown', command = radioSelect).pack()
 
+# button options
+button = ttk.Button(root, text = 'Change Line', padding = (10, 10))
+button.grid(row = 2, column = 1)
+button.configure(command = changeLine)
+
 # make a frame under the canvas for showing canvas info
 infoFrameLft = ttk.Frame(root)
 infoFrameRt = ttk.Frame(root)
-infoFrameLft.grid(row = 2, column = 0)
-infoFrameRt.grid(row = 2, column = 1)
+infoFrameLft.grid(row = 3, column = 0)
+infoFrameRt.grid(row = 3, column = 1)
 
 # get the line coordinates
 infoHeader = ttk.Label(infoFrameLft, text = 'CANVAS INFO:  ')
