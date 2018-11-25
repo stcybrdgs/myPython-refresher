@@ -35,7 +35,17 @@ def changeLine():
 	elif(changeLineCount == 4):
 		changeLineCount = 0
 		canvas.coords(line, 160, 360, 480, 120,)		
-		
+
+def smoothSelect():
+	if(smoothIt.get() == 'Normal'):
+		#smoothIt.set('Smooth')
+		canvas.itemconfigure(line, smooth = 'True')
+	else:
+		smoothIt.set('Normal')
+		canvas.itemconfigure(line, smooth = False)
+	
+	print(smooth.get())
+	
 # tkinter ====================================
 root = Tk()
 
@@ -73,6 +83,18 @@ ttk.Radiobutton(radioFrame, text = 'Orange', variable = color, value = 'Orange',
 ttk.Radiobutton(radioFrame, text = 'Yellow', variable = color, value = 'Yellow', command = radioSelect).pack()
 ttk.Radiobutton(radioFrame, text = 'Green', variable = color, value = 'Green', command = radioSelect).pack()
 ttk.Radiobutton(radioFrame, text = 'Brown', variable = color, value = 'Brown', command = radioSelect).pack()
+
+# check box option
+checkbox = ttk.Checkbutton(root, text = 'Smooth')
+checkbox.grid(row = 2, column = 0)
+state = StringVar()
+state.set('Normal')
+checkbox.config(
+	variable = state,
+	onvalue = 'Smooth',
+	offvalue = 'Normal'
+)
+checkbox.configure(command = stateSelect)
 
 # button options
 button = ttk.Button(root, text = 'Change Line', padding = (10, 10))
