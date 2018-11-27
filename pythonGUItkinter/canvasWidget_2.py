@@ -3,7 +3,7 @@
 
 # imports ====================================
 from tkinter import *
-from tkinter import ttk
+# from tkinter import ttk
 # canvas widgets are not part of ttk
 
 # globals ====================================
@@ -38,9 +38,14 @@ line = canvas.create_line(
 rect = canvas.create_rectangle(160, 120, 420, 260)
 canvas.itemconfigure(rect, fill = 'green')
 
+rect2 = canvas.create_rectangle(160, 120, 480, 360)
+canvas.itemconfigure(rect2, fill = 'pink')
+
+
 # draw an oval
 # xy pairs represent top-left and bottom-right corners of a bounding box
 oval = canvas.create_oval(120, 120, 210, 230)
+oval2 = canvas.create_oval(440, 120, 520, 230)
 
 # draw an arc
 # an arc is just a piece of the oval from 0 to 90 degrees
@@ -65,6 +70,31 @@ image = canvas.create_image(320, 240, image = logo)
 # you can use lift() and lower()
 canvas.lift(text)
 canvas.lower(rect)
+canvas.lower(rect2)
+
+# create a canvas button in a window
+# rem this is not a ttk button but a canvas button
+button = Button(canvas, text = 'Click Me')
+canvas.create_window(320, 60, window = button)
+
+# tags
+# if you want to reference multiple canvas items at once, you can do so
+# by using tags. You can create tags to use as custom identifiers when
+# you attach them to a canvas item
+# Each canvas item can have multiple tags and the same tag can be used
+# by multiple canvas items. This gives us an easy way to logically group
+# and modify multiple items at the same time. Afterwards, you can
+# execute a single method on multiple tags
+#
+# add a tag to a rectangle and oval to specify that it's a shape
+canvas.itemconfigure(rect, tag = ('shape'))
+canvas.itemconfigure(oval, tag = ('shape', 'round'))
+
+# use shape tag to change the color of associated items to grey
+canvas.itemconfigure('shape', fill = 'grey')
+
+# use gettags() to find out which tags are associated with an item
+print('oval tags include:', canvas.gettags(oval))
 
 # tkinter loop
 root.mainloop()
