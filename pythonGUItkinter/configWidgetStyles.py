@@ -15,12 +15,6 @@
 from tkinter import *
 from tkinter import ttk
 
-# globals ==================================
-
-
-# functions ================================
-
-
 # tkinter  =================================
 root = Tk()
 button1 = ttk.Button(root, text = 'Button 1')
