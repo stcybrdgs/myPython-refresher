@@ -8,6 +8,8 @@ from tkinter import ttk
 root = Tk()
 
 # make a bunch of labels for the root window
+# rem by default, widgets are placed in the center of the grid space
+#     that is allocated for them
 colors = {'red', 'orange', 'yellow', 'green', 'blue', 'purple'}
 r = 0
 c = 0
