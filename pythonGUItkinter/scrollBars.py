@@ -10,11 +10,6 @@
 from tkinter import *
 from tkinter import ttk
 
-
-# globals ====================================
-
-# functions ==================================
-	
 # tkinter ====================================
 root = Tk()
 text = Text(root, width = 40, height = 10, wrap = 'word')
@@ -36,7 +31,6 @@ text.config(yscrollcommand = ybar.set)
 # entry
 # spinbox
 # combobox
-
 
 # tkinter loop
 root.mainloop()
