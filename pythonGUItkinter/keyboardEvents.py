@@ -12,12 +12,9 @@ devices like the keyboard and the mouse. Such events include:
     FocusOut
 
 '''
-
 # imports ======================================
 from tkinter import *
 from tkinter import ttk        
-
-# globals ======================================
 
 # functions ====================================
 def key_press(event):
@@ -35,8 +32,7 @@ def key_press(event):
 
 def shortcut(action):
     labelSpecial.configure(text = action)
-    
-    
+        
 # tkinter ======================================    
 root = Tk()
 
@@ -79,7 +75,6 @@ labelSpecial.grid(row = 2, column = 0, columnspan = 5)
 root.bind('<Control-c>', lambda e: shortcut('Special Keys: Copy'))
 root.bind('<Control-v>', lambda e: shortcut('Special Keys: Paste'))
 
-
 '''
 example keyboard event binding statements:
 
@@ -96,14 +91,11 @@ a, b, c, 1, 2, 3, etc           User pressed a 'printable' key
 <Control-Alt-Next>              User pressed Ctrl+Alt+PageDown keys
 
 '''
-
-
 # tk main loop =================================
 root.mainloop()
 
 # main ===============================
 def main():
     print('Done.')
-
 
 if __name__ == '__main__': main()    
