@@ -24,6 +24,19 @@ root = Tk()
 
 root.geometry('640x480+600+200')
 
+label_1 = ttk.Label(root, text = 'blue', background = 'blue')
+label_2 = ttk.Label(root, text = 'green', background = 'green')
+label_3 = ttk.Label(root, text = 'orange', background = 'orange')
+
+# use place manager to put labels at precise locations
+label_1.place(x = 100, y = 50)
+label_2.place(relx = 0.5, rely = 0.5, anchor = 'center')
+label_3.place(relx = 0.5, x = -100, rely = 0.5, y = 50)
+
+# specify the absolute size of a widget
+label_1.place(width = 100, height = 50)
+label_2.place(relwidth = 0.5, relheight = 0.5)
+
 # tk main loop =================================
 root.mainloop()
 
