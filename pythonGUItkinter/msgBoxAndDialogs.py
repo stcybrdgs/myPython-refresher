@@ -43,7 +43,12 @@ messagebox.askyesno(title = 'Hungry?', message = 'Have you eaten?')
 # prompt the user to browse for a file or dialogue path
 filename = filedialog.askopenfile()
 # retrieve name of selected file:
-print(filename.name)
+# print(filename.name)
+
+'''
+when you set off a Markdown section sith triple quotes,
+it will exist as a multiline comment and won't run as code
+'''
 
 # open the colorchooser
 colorchooser.askcolor(initialcolor = '#FFFFFF')
