@@ -20,7 +20,7 @@ class Player:
     # rem first method is always self
     
     # class variables:
-    def __init__(self, name, genre):
+    def __init__(self, name = 'Stacy', genre = 'Instrumental'):
         self._name = name
         self._genre = genre
     
@@ -46,7 +46,6 @@ class ClothingItem:
     def getType(self): return self._type
     def getName(self): return self._name
     def getColor(self): return self._color
-    def setName(self, nuName): self._name = nuName
 
 class Band:
     # this class example uses **kwargs with default values
@@ -96,14 +95,9 @@ def main():
     # Clothing() objects
     c1 = ClothingItem(type = 'winter', name = 'boot', color = 'black')
     c2 = ClothingItem(type = 'summer', color = 'yellow', name = 'dress')
-    c3 = ClothingItem(type = 'summer', color = 'white', name = 'shorts')
 
     print_clothingItem(c1)
     print_clothingItem(c2)
-    print_clothingItem(c3)
-    
-    c3.setName('hat')
-    print_clothingItem(c3)
     
     # Band() objects
     b1 = Band(type = 'rock', name = 'Rush', color = 'white')
