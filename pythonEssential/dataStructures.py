@@ -1,9 +1,9 @@
 # data structures
 # python provides collection types for creating structured data
-# list        []    a basic sequence                  mutable
-# tuple       ()    a basic sequence                  immutable
-# dictionary  {:}   list of key:value pairs           mutable 
-# set         {}    unordered list of unique values   mutable
+# list        []    a basic sequence                  mutable, ordered
+# tuple       ()    a basic sequence                  immutable, ordered
+# dictionary  {:}   list of key:value pairs           mutable, unordered, indexed, k:v 
+# set         {}    unordered list of unique values   mutable, unordered, unindexed
 
 
 # imports ===============================
