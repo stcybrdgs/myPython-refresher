@@ -17,7 +17,7 @@ class Guitar:
 
 class Player:
     # class constructor __init__
-    # rem first method is always self
+    # rem first argument is always self
     
     # class variables:
     def __init__(self, name, genre):
