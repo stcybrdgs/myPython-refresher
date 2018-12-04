@@ -1,8 +1,5 @@
 # prac_1203.py
 
-# imports ============================
-
-
 # classes ============================
 # pattern 1
 # simple class with no constructor
@@ -41,24 +38,25 @@ class Occupations():
 # class with construtor taking *args
 # where args must be passed in specific order
 class Dogs():
-	def __init__(self, breed = 'Chihuahua',  color = 'Brown', sound = 'Yap' ):
-		self._breed = breed
-		self._color = color
-		self._sound = sound
+	def __init__(self, *args):
+		# breed, color, sound
+		self._breed = args[0]
+		self._color = args[1]
+		self._sound = args[2]
 	
-	def getBreed(self): return self._breed
-	def getColor(self): return self._color
-	def getSound(self): return self._sound
+	def getDog(self):
+		print('The ' + self._color + ' ' + self._breed + ' says ' + self._sound + '.')
 
 # pattern 4
 # class with constructor taking **kwargs
 # where kwargs may be passed in any order
-
-# globals ============================
-
-
-# functions ==========================
-
+class Books():
+	def __init__(self, **kwargs):
+		self._size = kwargs['size'] if 'size' in kwargs else 'big'
+		self._type = kwargs['type'] if 'type' in kwargs else 'English'
+	
+	def getSize(self): return self._size
+	def getType(self): return self._type
 
 # main ===============================
 def main():
@@ -80,8 +78,16 @@ def main():
 	print(occs3.getJob(), ', ', occs3.getField())
 	
 	print('\nClass Pattern 3: -------------------------- ')
+	dog1 = Dogs('Chihuahua', 'Brown', 'Yap')
+	dog1.getDog()
 
 	print('\nClass Pattern 4: -------------------------- ')
+	book0 = Books(type = 'Chinese', size = 'Medium Sized')
+	book1 = Books(type = 'Math', size = 'Gigantic')
+	book2 = Books()
+	print('The book is a {} {} book.'.format(book0.getSize(), book0.getType()))
+	print('The book is a {} {} book.'.format(book1.getSize(), book1.getType()))
+	print('The book is a {} {} book.'.format(book2.getSize(), book2.getType()))
 	
 if __name__ == '__main__': main()
 
