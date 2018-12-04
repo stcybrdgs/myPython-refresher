@@ -58,6 +58,16 @@ class Books():
 	def getSize(self): return self._size
 	def getType(self): return self._type
 
+# pattern 5
+# generic class using the combination setter/getter method
+class Combo():
+	def __init__(self, anyStr = 'any string'):
+		self._classString = anyStr
+	
+	def thisString(self, s = None):
+		if s: self._classString = s
+		return self._classString
+	
 # main ===============================
 def main():
 	print('Class Pattern 1: -------------------------- ')
@@ -88,6 +98,12 @@ def main():
 	print('The book is a {} {} book.'.format(book0.getSize(), book0.getType()))
 	print('The book is a {} {} book.'.format(book1.getSize(), book1.getType()))
 	print('The book is a {} {} book.'.format(book2.getSize(), book2.getType()))
+	
+	print('\nClass Pattern 5: -------------------------- ')
+	c0 = Combo()
+	print(c0.thisString())
+	c0.thisString('NuString')
+	print(c0.thisString())
 	
 if __name__ == '__main__': main()
 
