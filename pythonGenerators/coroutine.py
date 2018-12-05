@@ -1,6 +1,4 @@
 # coroutine.py
-
-# contextManagers.py
 '''
 A coroutine is another important tool that you can build out of a
 Python generator. While a generator is something that produces a sequence,
