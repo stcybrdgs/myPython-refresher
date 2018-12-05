@@ -9,9 +9,8 @@
 # with large amounts of data, this approach (aka 'lazy
 # evaluation') allows you to evaluate one item at a time.
 #
-# the generator function will be what you program
 # the generator object is created when you call the function
-# the term generator by itself refers to the object
+# the term 'generator' by itself refers to the object
 #
 # Building a generator function is much like building
 # any other function, but there's one important
@@ -23,8 +22,7 @@
 def evenInts_function(n):
 	result = [] # a list to contain the results
 	for i in range(n):
-		if i % 2 == 0:
-			result.append(i)
+		if i % 2 == 0: result.append(i)
 	return result
 
 # generators =======================
