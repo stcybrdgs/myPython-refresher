@@ -7,8 +7,8 @@ the coroutine, you can close it out, which will raise the generator exit excepti
 By handling the exception, you can provide some action that you want to occur
 upon closing the coroutine.
 
-This example demontstrates how to use a coroutine function to use a coroutine function to
-build objects that consume data and maintain internal state on an on-going basis.
+This example demontstrates how to use a coroutine function to build objects
+that consume data and maintain internal state on an on-going basis.
 '''
 # functions ==========================
 def counter(string):
