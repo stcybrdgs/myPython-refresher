@@ -1,7 +1,8 @@
 # coroutine_decorators.py
 '''
 to get around the need to prime a coroutine via next(), you can use
-a decorator.
+a decorator. The decorator provides a way to wrap your coroutine in a
+preprocessing function.
 '''
 # functions ======================		
 def coroutine_decorator(func):
