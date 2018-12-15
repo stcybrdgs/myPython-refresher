@@ -1,9 +1,6 @@
 # euclidsAlgorithm_2.py
 # a leaner version of the algorithm
 
-# globals =================================
-
-
 # functions ===============================
 def gcd(a, b):
 	while( b != 0):
