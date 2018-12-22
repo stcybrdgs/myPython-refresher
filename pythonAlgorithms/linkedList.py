@@ -48,8 +48,12 @@ class LinkedList(object):
 
     def deleteAt(self, idx):
         # return None if delete loc is out of linked list range
-        if idx > self.count:
+        if idx > self.count-1:
             return
+        
+        # reset head to next node if idx is the head itself
+        if idx == 0:
+            self.head = self.head.get_next()
         
         # return None if head is only node in list
         if self.head == None:
@@ -70,7 +74,7 @@ class LinkedList(object):
     def dump_list(self):
         tempnode = self.head
         while (tempnode != None):
-            print("Node: ", tempnode.get_data())
+            print('Node: ', tempnode.get_data())
             tempnode = tempnode.get_next()
 
 # main ==================================
@@ -83,22 +87,25 @@ def main():
     itemlist.insertAtHead(15)
     
     # look at the contents of the list
+    print('Dumping contents...')
     itemlist.dump_list()
-    print("Item count: ", itemlist.get_count())
+    print('Item count: ', itemlist.get_count())
     
     # find loc of items if exist
-    print("Finding item: ", itemlist.find(13))
-    print("Finding item: ", itemlist.find(78))
+    print('Finding item 13: ', itemlist.find(13))
+    print('Finding item 78: ', itemlist.find(78))
     
     # delete an item
+    print('Deleting item 3...')
     itemlist.deleteAt(3)
     
     # look at the contents of the list again
+    print('Dumping contents...')
     itemlist.dump_list()
-    print("Item count: ", itemlist.get_count())
+    print('Item count: ', itemlist.get_count())
     
     # find loc of an item if exists
-    print("Finding item: ", itemlist.find(38))
+    print('Finding item 38: ', itemlist.find(38))
     
     print('Done.')
     
