@@ -34,3 +34,16 @@ for an item.
 The algorithm you choose will need to work well with the data structure into which your data
 has been organized. Of course, the most common structures are:
 arrays, linked lists, stacks, queues, trees, hash tables
+
+Array operations:
+- calculate item index: O(1)
+- insert or delete item at end: O(1)
+- insert or delete item at beginning: O(n)
+- insert or delete item in middle: O(n)
+
+Linked list operations:
+- pro: faster and easier than array to add and remove items
+- pro: items don't have to be stored contiguously, so underlying memory
+  doesn't have to be reorganized every time the content size changes
+- con: can't do constant-time O(1) random access as per array;
+       (you have to start at the head each time)
