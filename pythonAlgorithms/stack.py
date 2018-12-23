@@ -16,11 +16,33 @@
 -    an example of using a queue is order processing because the FIFO queue ensures
      that orders will be filled in the order that they are received
 -    another example of using a queue is message processing
-   
 
 '''
 
-
 # classes =============================
+
 # functions ===========================
+	
 # main ================================
+def main():
+	# in python you can just use a list to represent a stack or queue
+	# make a stack
+	stack = []
+	print('Stack contents: ', stack)
+
+	
+	# push values onto stack
+	val = 0
+	while( len(stack) < 4 ):
+		stack.append(val)
+		val += 1
+		print('Stack contents: ', stack)
+	
+	# pop values off stack 
+	while ( len(stack) > 0 ):
+		stack.pop() # pop value off stack
+		print('Stack contents: ', stack)
+	
+	print('Done.')
+	
+if __name__ == '__main__' : main()
