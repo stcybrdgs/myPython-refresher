@@ -13,11 +13,6 @@
      then backtracking just requires a pop()
 
 '''
-
-# classes =============================
-
-# functions ===========================
-	
 # main ================================
 def main():
 	# in python you can just use a list to represent a stack or queue
