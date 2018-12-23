@@ -11,11 +11,11 @@
 -    another example of using a queue is message processing
 
 -  DEQUE OBJECT:
-	 you can use a list as a queue in python, but the BigO becomes inefficient bc
-	 you have to shift all the contents down a slot when you dequeue an item, so you
-	 go from O(1) constant time to O(n) linear time in this scenario,
-	 which becomes very inefficient as the data set grows larger; instead, 
-	 it is more efficient to use the deque object from python's collections module
+     you can use a list as a queue in python, but the BigO becomes inefficient bc
+     you have to shift all the contents down a slot when you dequeue an item, so you
+     go from O(1) constant time to O(n) linear time in this scenario,
+     which becomes very inefficient as the data set grows larger; instead, 
+     it is more efficient to use the deque object from python's collections module
 
 '''
 # imports =============================
@@ -33,6 +33,11 @@ def main():
 		val += 1
 		print('Queue contents: ', queue)
 		
+	# deque values
+	while( len(queue) > 0 ):
+		queue.popleft() # take item off front of queue
+		print('Queue contents: ', queue)
+	
 	print('Done.')
 	
 if __name__ == '__main__' : main()
