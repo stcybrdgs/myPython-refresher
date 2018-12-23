@@ -47,6 +47,7 @@ def main():
 	
 	# in an actual hash table, an algorithm does the mapping and the storage
 	# locations in memory are not necessarily contiguous as they are in this example
+	
 	print('Done.')
 
 if __name__ == '__main__' : main()
