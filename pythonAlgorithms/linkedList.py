@@ -16,7 +16,6 @@ class Node(object):
     def get_next(self): return self.next
     def set_next(self, next): self.next = next
 
-
 class LinkedList(object):
     def __init__(self, head = None):
         self.head = head  # head node loc
