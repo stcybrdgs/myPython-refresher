@@ -8,19 +8,29 @@ def power(num, pwr):
 		return 1
 	else:
 		return num * power(num, pwr-1)
-'''	
+
+# this function returns a factorial
 # rem 0! = 1
 # rem 5! = 5 * 4 * 3 * 2 * 1 = 120
 def factorial(num):
-	if(num == 1):
-		return
+	if(num == 0):
+		return 1
 	else:
-		num = num
-'''		
+		return num * factorial(num - 1)
 	
 # main =================================
 def main():
-	print('6^4 is: ', power(6,4))
+	# return the results of some power calculations:
+	powerNums = (6, 4, 8, 2)
+	powerPwrs = (4, 6, 9, 3)
+	powerZip = zip(powerNums, powerPwrs)
+	for n, p in powerZip:
+		print(f'{n}^{p} is: ', power(n, p))
+		
+	# return the results of some factorial calculations:
+	facNums = (5, 25, 6, 3)
+	for i in facNums:
+		print(f'{i}! is: ', factorial(i))
 
 	print('Done.')
 
