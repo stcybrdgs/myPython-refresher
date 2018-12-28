@@ -7,11 +7,9 @@
 - it has a good performance profile in logarithmic time O(n log n)-- 'log linear'
 
 '''
-# imports =============================
 # globals =============================
-items = [6, 20, 8, 9, 19, 56, 23, 87, 41, 49, 53]
+items = [6, 20, 8, 9, 19, 56, 23, 87, 41]
 
-# classes =============================
 # functions ===========================
 def mergesort(data):
 	# break down the data set ------------------------
@@ -51,7 +49,6 @@ def mergesort(data):
 			data[k] = rightarray[j]
 			j += 1
 			k += 1
-
 		
 # main ================================
 def main():
