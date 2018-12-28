@@ -39,11 +39,18 @@ def mergesort(data):
 				data[k] = rightarray[j]
 				j += 1
 			k += 1
+
+		# if the left array still has values, put them into k
+		while i < len(leftarray):
+			data[k] = leftarray[i]
+			i += 1
+			k += 1
 		
-		# if the left array still has values, sort them into k
-		
-		# if the right array still has values, sort them into k
-		
+		# if the right array still has values, put them into k
+		while j < len(rightarray):
+			data[k] = rightarray[j]
+			j += 1
+			k += 1
 
 		
 # main ================================
@@ -51,13 +58,17 @@ def main():
 	# find the mid point of the data set, then
 	# show the original set and how it's been split up
 	print('Show original set and first two splits: ')
-	mid = len(items)//2
 	print(items)
+	mid = len(items)//2
 	print(items[:mid], ' ', items[mid:])
 	print('\n')
 	
+	# run mergesort
 	mergesort(items)
-
+	
+	# show sorted data set
+	print('\nShow the final , sorted data set: ')
+	print(items)
 	
 	# end
 	print('Done.')
