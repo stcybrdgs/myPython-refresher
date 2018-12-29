@@ -11,7 +11,7 @@
   then partition the list
 '''
 # globals =============================
-items = [20, 6, 8, 53, 56, 23, 87, 41, 49, 19]
+items = [20, 6, 8, 53, 56, 505, 23, 87, 41, 49, 19]
 
 # functions ===========================
 def quickSort(dataSet, first, last):
@@ -20,8 +20,8 @@ def quickSort(dataSet, first, last):
 		pivotIndex = partition(dataSet, first, last)
 		
 		# sort the two partitions
-		quickSort(dataSet, first, pivotIndex-1)
-		quickSort(dataSet, pivotIndex+1, last)
+		quickSort(dataSet, first, pivotIndex - 1)
+		quickSort(dataSet, pivotIndex + 1, last)
 	
 def partition(dataValues, first, last):
 	# choose the first item as the pivot value
@@ -33,15 +33,25 @@ def partition(dataValues, first, last):
 	
 	# search for the split point
 	done = False
-	'''
+	
 	while not done:
 		# advance lower index
-		x=0
+		while lower <= upper and dataValues[lower] <= pivotValue:
+			lower += 1
+
 		# advance upper index
-		x=1
+		while upper >= lower and dataValues[upper] > pivotValue:
+			upper -= 1
+
 		# if indices cross, we have found the split point
-		x=2
-	'''
+		if upper < lower:
+			done = True
+		# else swap upper and lower indices
+		else:
+			temp = dataValues[lower]
+			dataValues[lower] = dataValues[upper]
+			dataValues[upper] = temp
+		
 	# once the split point is found, swap the pivot value into the array
 	temp = dataValues[first]
 	dataValues[first] = dataValues[upper]
@@ -54,13 +64,14 @@ def partition(dataValues, first, last):
 def main():
 	global items
 	
+	# show starting array
 	print(items)
 	
 	# run the quick sort
 	quickSort(items, 0, len(items)-1)
 	
+	# show ending array
 	print(items)
-
 
 	# end
 	print('Done.')
