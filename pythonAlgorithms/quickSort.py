@@ -1,6 +1,6 @@
 # quickSort.py
 '''
-- merge sort is a 'divide and conquer' algorithm-- ie, it breaks data down into
+- quick sort is a 'divide and conquer' algorithm-- ie, it breaks data down into
   smaller parts that are easier to work with.
 - it uses recursion to perform sorting
 - generally performs better than merge sort O(n log n)
@@ -45,7 +45,7 @@ def partition(dataValues, first, last):
 
 		# if indices cross, we have found the split point
 		if upper < lower:
-			done = True
+			done = True # invoke breaking condition for the while loop
 		# else swap upper and lower indices
 		else:
 			temp = dataValues[lower]
