@@ -22,5 +22,5 @@ name_box = soup.find('h1', attrs={'class': 'name'})
 
 # now that you have the tag, get the data out of it as text
 # and use strip() to remove starting and trailing
-name = name_box#.text.strip() 
-print (soup)
+name = name_box#.innerHTML.strip() 
+print (name_box)
