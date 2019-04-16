@@ -2,23 +2,36 @@
 # testing a python/beautifulSoup screen scraper
 
 from bs4 import BeautifulSoup
+import urllib
+import urllib.request
+import re # regular expression library
 
-'''
-result = requests.get('https://wrangleworks.com')
-page = result.text
-print(page)
-driver = webdriver.Chrome()
-driver.get('http://quotes.toscrape.com/')
-page = driver.page_source
-'''
-# htmldoc = ('DSFD_Listing.html')
+# point to html markup doc
+htmlDoc = open('DSFD_Listing.html', 'rt')
 
-html_doc = open('DSFD_Listing.html', 'rt')
-# make a BeautifulSoup object, and let it turn the 
+# make a BeautifulSoup object, and then let it turn the 
 # html markup from htmldoc into a parse tree
-soup = BeautifulSoup(html_doc, 'html.parser')
-print(html_doc, 'HELLO', '\n\n', soup)
-html_doc.close()
+soup = BeautifulSoup(htmlDoc, 'html.parser')
+htmlDoc.close()
+
+# print some stuff from the markup
+print(soup.prettify()[0:200])
+print('\n\n')
+print(soup.p.attrs)
+print(soup.body.p)
+
+# point to web page
+myPage = 'https://analytics.usa.gov'
+
+# make a BeautifulSoup object, and then let it turn the
+# html from the page into a parse tree
+p = urllib.request.urlopen(myPage)
+# urllib.request.urlopen('https://analytics.usa.gov').read()
+soup = BeautifulSoup(p, 'html.parser')
+
+# print some stuff from the url
+print('\n\n')
+print(soup.prettify()[0:200])
 
 
 
