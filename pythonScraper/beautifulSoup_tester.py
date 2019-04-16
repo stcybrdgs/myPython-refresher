@@ -1,4 +1,4 @@
-# bSoup_1.py
+# beautifulSoup_tester.py
 # testing a python/beautifulSoup screen scraper
 
 
