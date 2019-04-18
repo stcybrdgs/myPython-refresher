@@ -1,4 +1,4 @@
-# scrapy_v1.py
+# quotes_spider.py
 # getting started with a scrapy web scraper
 
 
@@ -21,6 +21,7 @@ class QuotesSpider(scrapy.Spider):
             'http://quotes.toscrape.com/page/2/',
         ]
         for url in urls:
+            # return a scrapy.Request object
             yield scrapy.Request(url=url, callback=self.parse)
 
     # create a method to handle responses from requests
